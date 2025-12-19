@@ -16,14 +16,13 @@ const experiences: ExperienceItem[] = [
         role: "Founding Intern - Full Stack Developer",
         period: "June 2025 - July 2025",
         location: "Remote",
-        description: [
-            "Architected the core infrastructure of a cross-platform AI cybersecurity platform using Electron, TypeScript, and React; authored 20,000+ LOC across frontend, backend, and low-level IPC modules.",
-            "Designed and integrated a scalable multi-agent orchestration layer powered by Mastra, supporting concurrent agent sessions and persistent threads.",
-            "Implemented developer-facing features including AI-native terminals and autonomous code editors.",
-            "Developed selective AST-based code scanning combined with a .fenrirignore parser for high-performance parsing.",
-            "Spearheaded a resilient interrupt control pipeline using Electron's IPC Main–Renderer bridge.",
-            "Refactored IPC architecture using typed protocol handlers, reducing logic bugs by over 30%."
-        ],
+        description: ["Architected the core infrastructure of a cross-platform AI platform using Electron, TypeScript, and React; authored 20,000+ LOC across frontend, backend, and IPC layers.",
+"Designed and integrated a scalable multi-agent orchestration layer with Mastra, enabling concurrent agent sessions and persistent threads.",
+"Built developer-facing features including AI-native terminals, autonomous code editors, and multi-session workspaces.",
+"Implemented selective AST-based code scanning with a custom .fenrirignore parser for high-performance analysis.",
+"Engineered a resilient interrupt control pipeline using Electron’s IPC Main–Renderer bridge.",
+"Refactored IPC architecture with typed protocol handlers, reducing logic bugs by over 30%."],
+
         tech: ["Electron", "TypeScript", "React", "Node.js", "Mastra"]
     },
     {

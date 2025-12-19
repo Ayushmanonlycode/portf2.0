@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, FileDown } from "lucide-react";
 
 // Inline Button component
 const Button = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
@@ -88,6 +88,43 @@ export default function Component() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const [isAutoScrolling, setIsAutoScrolling] = useState(false);
+    const scrollRef = useRef<number | null>(null);
+
+    const toggleAutoScroll = () => {
+        if (isAutoScrolling) {
+            setIsAutoScrolling(false);
+            if (scrollRef.current) cancelAnimationFrame(scrollRef.current);
+        } else {
+            setIsAutoScrolling(true);
+            const scroll = () => {
+                window.scrollBy(0, 0.8); // Very slow cinematic scroll
+                if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+                    setIsAutoScrolling(false);
+                    return;
+                }
+                scrollRef.current = requestAnimationFrame(scroll);
+            };
+            scrollRef.current = requestAnimationFrame(scroll);
+        }
+    };
+
+    // Stop autoscroll on manual interaction
+    useEffect(() => {
+        const handleInteraction = () => {
+            if (isAutoScrolling) {
+                setIsAutoScrolling(false);
+                if (scrollRef.current) cancelAnimationFrame(scrollRef.current);
+            }
+        };
+
+        window.addEventListener("wheel", handleInteraction);
+        window.addEventListener("touchmove", handleInteraction);
+        return () => {
+            window.removeEventListener("wheel", handleInteraction);
+            window.removeEventListener("touchmove", handleInteraction);
+        };
+    }, [isAutoScrolling]);
 
     useEffect(() => {
         document.documentElement.classList.add("dark");
@@ -111,7 +148,7 @@ export default function Component() {
     }, [isMenuOpen]);
 
     const menuItems = [
-        { label: "HOME", href: "#", highlight: true },
+        { label: "HOME", href: "#home", highlight: true },
         { label: "ABOUT", href: "#about" },
         { label: "PROJECTS", href: "#projects" },
         { label: "EXPERIENCE", href: "#experience" },
@@ -120,16 +157,16 @@ export default function Component() {
     ];
 
     return (
-        <div className="min-h-screen text-white transition-colors bg-transparent">
+        <div id="home" className="min-h-screen text-white transition-colors bg-transparent">
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 mix-blend-difference">
+            <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
                 <nav className="grid grid-cols-3 items-center max-w-screen-2xl mx-auto">
                     {/* Menu Button */}
                     <div className="relative justify-self-start">
                         <button
                             ref={buttonRef}
                             type="button"
-                            className="p-2 transition-colors duration-300 z-50 text-neutral-400 hover:text-white"
+                            className="p-2 transition-colors duration-300 z-50 text-neutral-400 hover:text-white mix-blend-difference"
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
@@ -143,7 +180,7 @@ export default function Component() {
                         {isMenuOpen && (
                             <div
                                 ref={menuRef}
-                                className="absolute top-full left-0 w-[200px] md:w-[240px] border-none shadow-2xl mt-2 ml-4 p-4 rounded-lg z-[100] bg-black border border-white/10"
+                                className="absolute top-full left-0 w-[140px] md:w-[240px] shadow-2xl mt-2 ml-4 p-4 rounded-lg z-[100] bg-black border border-white/10"
                             >
                                 {menuItems.map((item) => (
                                     <a
@@ -153,7 +190,15 @@ export default function Component() {
                                         style={{
                                             color: item.highlight ? "#C3E41D" : "white",
                                         }}
-                                        onClick={() => setIsMenuOpen(false)}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            const targetId = item.href.replace("#", "");
+                                            const element = document.getElementById(targetId);
+                                            if (element) {
+                                                element.scrollIntoView({ behavior: "smooth" });
+                                            }
+                                            setIsMenuOpen(false);
+                                        }}
                                     >
                                         {item.label}
                                     </a>
@@ -163,12 +208,23 @@ export default function Component() {
                     </div>
 
                     {/* Signature - Centered */}
-                    <div className="text-4xl text-white justify-self-center" style={{ fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
+                    <div className="text-4xl text-white justify-self-center mix-blend-difference" style={{ fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
                         Ayushman Rout
                     </div>
 
-                    {/* Empty div for grid balance */}
-                    <div></div>
+                    {/* Resume Download - Top Right */}
+                    <div className="justify-self-end">
+                        <a
+                            href="https://drive.google.com/file/d/14qIOaUdloMntFF5P2beL399f9zJ_GYRW/view"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-4 py-2 border border-neutral-800 rounded-full text-xs md:text-sm font-bold tracking-widest text-neutral-400 hover:text-white hover:border-white transition-all duration-300 mix-blend-difference"
+                            style={{ fontFamily: "'Fira Code', monospace" }}
+                        >
+                            <FileDown className="w-4 h-4" />
+                            <span className="hidden sm:inline">RESUME</span>
+                        </a>
+                    </div>
 
                 </nav>
             </header>
@@ -221,10 +277,11 @@ export default function Component() {
                 {/* Scroll Indicator */}
                 <button
                     type="button"
-                    className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 transition-colors duration-300"
-                    aria-label="Scroll down"
+                    onClick={toggleAutoScroll}
+                    className={`absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 transition-all duration-700 ${isAutoScrolling ? "scale-125 opacity-100" : "opacity-50 hover:opacity-100"}`}
+                    aria-label={isAutoScrolling ? "Stop autoscroll" : "Start cinematic scroll"}
                 >
-                    <ChevronDown className="w-5 h-5 md:w-8 md:h-8 text-neutral-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
+                    <ChevronDown className={`w-8 h-8 md:w-10 md:h-10 transition-colors duration-300 ${isAutoScrolling ? "text-[#C3E41D] animate-bounce" : "text-neutral-500"}`} />
                 </button>
             </main>
         </div>

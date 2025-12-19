@@ -6,7 +6,7 @@ interface EducationItem {
     degree: string;
     period: string;
     CGPA: string;
-    
+
 }
 
 const educationData: EducationItem[] = [
@@ -15,14 +15,14 @@ const educationData: EducationItem[] = [
         degree: "Bachelor of Technology - BTech, Computer Science",
         period: "Aug 2023 – Aug 2027",
         CGPA: "9.13",
-       
+
     },
     {
         institution: "DAV Schools Network",
         degree: "Grade 12",
         period: "Completed",
-        CGPA: "96%",    
-       
+        CGPA: "96%",
+
     },
     {
         institution: "DAV Schools Network",
@@ -44,7 +44,7 @@ export default function EducationSection() {
             {/* Header */}
             <div className="mb-16 md:mb-24">
                 <BlurText
-                    text="03 — EDUCATION"
+                    text="04 — EDUCATION"
                     delay={30}
                     animateBy="letters"
                     direction="bottom"

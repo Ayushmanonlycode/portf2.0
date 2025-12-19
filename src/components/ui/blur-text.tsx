@@ -23,9 +23,7 @@ const BlurText: React.FC<BlurTextProps> = ({
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setInView(true);
-                }
+                setInView(entry.isIntersecting);
             },
             { threshold: 0.1 }
         );

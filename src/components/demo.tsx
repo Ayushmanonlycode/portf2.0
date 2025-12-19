@@ -1,7 +1,9 @@
 import Component from "./ui/portfolio-hero";
+import AboutSection from "./ui/about-section";
 import ExperienceSection from "./ui/experience-section";
 import EducationSection from "./ui/education-section";
 import ProjectsSection from "./ui/projects-section";
+import ContactSection from "./ui/contact-section";
 
 export default function Demo() {
     return (
@@ -21,9 +23,11 @@ export default function Demo() {
 
             <div className="w-full relative z-10">
                 <Component />
+                <AboutSection />
                 <ExperienceSection />
-                <EducationSection />
                 <ProjectsSection />
+                <EducationSection />
+                <ContactSection />
             </div>
         </>
     );

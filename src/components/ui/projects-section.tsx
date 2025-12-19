@@ -18,12 +18,10 @@ const projectsData: ProjectItem[] = [
         period: "August 2025",
         tech: ["FastAPI", "FAISS", "Gemini LLMs", "Python", "Docker", "Tesseract OCR"],
         description: [
-            "Architected high-throughput asynchronous RAG pipeline using FastAPI and LangChain, implementing semantic vector similarity search with cosine distance calculations and query-document relevance scoring for context-aware information retrieval.",
-            "Built multi-format document processing engine with binary parsing for PDF/DOCX/PPTX/XLSX/EML and computer vision-based Tesseract OCR integration, featuring automated content extraction and structured data normalization pipelines.",
-            "Implemented FAISS HNSW indexing with L2-normalized embeddings and hierarchical navigable small world graphs, achieving O(log n) search complexity with configurable ef construction parameters for optimized retrieval performance.",
-            "Engineered scalable backend with JWT-based stateless authentication, sliding window rate limiting using token bucket algorithms, and asyncio coroutine pools with semaphore-controlled concurrency management.",
-            "Orchestrated LLM inference pipeline with batched tensor operations, exponential backoff with jitter, and semaphore-controlled concurrency, ensuring fault-tolerant and efficient processing of LLM requests."
-        ],
+    "Architected a high-throughput asynchronous RAG pipeline using FastAPI and LangChain, enabling semantic vector search with relevance-scored context retrieval.",
+    "Built a multi-format document processing engine supporting PDF, DOCX, PPTX, XLSX, and EML with integrated Tesseract OCR for automated text extraction.",
+    "Engineered a fault-tolerant LLM inference pipeline with batched processing, exponential backoff with jitter, and semaphore-controlled concurrency."
+  ],
         github: "https://github.com/Ayushmanonlycode/HackrxBackend"
     },
     {
@@ -32,11 +30,11 @@ const projectsData: ProjectItem[] = [
         period: "May 2025",
         tech: ["React", "TypeScript", "Node.js", "Express.js", "MongoDB", "Firebase Auth"],
         description: [
-            "Spearheaded the development of a job application dashboard featuring a multi-parameter filtering system, enabling users to sort applications by date, role, and status; cut time spent on application tracking by 60%.",
-            "Integrated responsive charts (pie, bar, area) using Recharts to visualize analytics such as status distribution and offer rates.",
-            "Built a real-time backend with Node.js, Express.js, and MongoDB, ensuring live dashboard updates with optimized API endpoints.",
-            "Implemented smooth UI transitions using Framer Motion and responsive design with Tailwind CSS"
-        ],
+    "Developed a job application tracking dashboard with multi-parameter filtering by date, role, and status, reducing tracking time by 60%.",
+    "Integrated responsive analytics dashboards using Recharts to visualize application status distribution and offer metrics.",
+    "Built a real-time backend with Node.js, Express, and MongoDB, delivering optimized APIs for live dashboard updates.",
+    "Implemented smooth UI transitions with Framer Motion and responsive layouts using Tailwind CSS."
+  ],
         github: "https://github.com/Ayushmanonlycode/JobTrackr"
     },
     {
@@ -65,7 +63,7 @@ export default function ProjectsSection() {
             {/* Header */}
             <div className="mb-16 md:mb-24">
                 <BlurText
-                    text="04 — PROJECTS"
+                    text="03 — PROJECTS"
                     delay={30}
                     animateBy="letters"
                     direction="bottom"
