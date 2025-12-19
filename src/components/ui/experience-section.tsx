@@ -70,11 +70,7 @@ export default function ExperienceSection() {
         <section
             id="experience"
             ref={sectionRef}
-            className="flex flex-col justify-center min-h-screen px-6 md:px-24 max-w-screen-2xl mx-auto py-24"
-            style={{
-                backgroundColor: "var(--background)",
-                color: "var(--foreground)"
-            }}
+            className="flex flex-col justify-center min-h-screen px-6 md:px-24 max-w-screen-2xl mx-auto py-24 relative overflow-hidden text-white"
         >
             {/* Header */}
             <div className="mb-16 md:mb-24">
@@ -128,6 +124,6 @@ export default function ExperienceSection() {
                     </div>
                 ))}
             </div>
-        </section>
+        </section >
     );
 }

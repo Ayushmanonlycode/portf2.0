@@ -85,7 +85,6 @@ const BlurText: React.FC<BlurTextProps> = ({
 };
 
 export default function Component() {
-    const [isDark, setIsDark] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -111,16 +110,6 @@ export default function Component() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [isMenuOpen]);
 
-    const toggleTheme = () => {
-        const newTheme = !isDark;
-        setIsDark(newTheme);
-        if (newTheme) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    };
-
     const menuItems = [
         { label: "HOME", href: "#", highlight: true },
         { label: "ABOUT", href: "#about" },
@@ -131,22 +120,16 @@ export default function Component() {
     ];
 
     return (
-        <div
-            className="min-h-screen text-foreground transition-colors"
-            style={{
-                backgroundColor: isDark ? "hsl(0 0% 0%)" : "hsl(0 0% 98%)",
-                color: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
-            }}
-        >
+        <div className="min-h-screen text-white transition-colors bg-transparent">
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
-                <nav className="flex items-center justify-between max-w-screen-2xl mx-auto">
+            <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6 mix-blend-difference">
+                <nav className="grid grid-cols-3 items-center max-w-screen-2xl mx-auto">
                     {/* Menu Button */}
-                    <div className="relative">
+                    <div className="relative justify-self-start">
                         <button
                             ref={buttonRef}
                             type="button"
-                            className="p-2 transition-colors duration-300 z-50 text-neutral-500 hover:text-black dark:hover:text-white"
+                            className="p-2 transition-colors duration-300 z-50 text-neutral-400 hover:text-white"
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
@@ -160,24 +143,15 @@ export default function Component() {
                         {isMenuOpen && (
                             <div
                                 ref={menuRef}
-                                className="absolute top-full left-0 w-[200px] md:w-[240px] border-none shadow-2xl mt-2 ml-4 p-4 rounded-lg z-[100]"
-                                style={{
-                                    backgroundColor: isDark ? "hsl(0 0% 0%)" : "hsl(0 0% 98%)",
-                                }}
+                                className="absolute top-full left-0 w-[200px] md:w-[240px] border-none shadow-2xl mt-2 ml-4 p-4 rounded-lg z-[100] bg-black border border-white/10"
                             >
                                 {menuItems.map((item) => (
                                     <a
                                         key={item.label}
                                         href={item.href}
-                                        className="block text-lg md:text-xl font-bold tracking-tight py-1.5 px-2 cursor-pointer transition-colors duration-300"
+                                        className="block text-lg md:text-xl font-bold tracking-tight py-1.5 px-2 cursor-pointer transition-colors duration-300 text-white hover:text-[#C3E41D]"
                                         style={{
-                                            color: item.highlight ? "#C3E41D" : isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.color = "#C3E41D";
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.color = item.highlight ? "#C3E41D" : (isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)");
+                                            color: item.highlight ? "#C3E41D" : "white",
                                         }}
                                         onClick={() => setIsMenuOpen(false)}
                                     >
@@ -188,27 +162,14 @@ export default function Component() {
                         )}
                     </div>
 
-                    {/* Signature */}
-                    <div className="text-4xl" style={{ color: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)", fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
+                    {/* Signature - Centered */}
+                    <div className="text-4xl text-white justify-self-center" style={{ fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive" }}>
                         Ayushman Rout
                     </div>
 
-                    {/* Theme Toggle */}
-                    <button
-                        type="button"
-                        onClick={toggleTheme}
-                        className="relative w-16 h-8 rounded-full hover:opacity-80 transition-opacity"
-                        style={{ backgroundColor: isDark ? "hsl(0 0% 15%)" : "hsl(0 0% 90%)" }}
-                        aria-label="Toggle theme"
-                    >
-                        <div
-                            className="absolute top-1 left-1 w-6 h-6 rounded-full transition-transform duration-300"
-                            style={{
-                                backgroundColor: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)",
-                                transform: isDark ? "translateX(2rem)" : "translateX(0)",
-                            }}
-                        />
-                    </button>
+                    {/* Empty div for grid balance */}
+                    <div></div>
+
                 </nav>
             </header>
 
