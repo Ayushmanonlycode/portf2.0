@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio! This is a high-performance, dark-themed, and typography-focused web application built to showcase my projects, experience, and passion for AI and Software Engineering.
 
-![Portfolio Preview](/public/lion.png) *(Note: Replace with an actual screenshot if available)*
+![Portfolio Preview](/public/lion.png) 
 
 ## 🌟 Key Features
 
