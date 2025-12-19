@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Ayushman Rout | Portfolio 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio! This is a high-performance, dark-themed, and typography-focused web application built to showcase my projects, experience, and passion for AI and Software Engineering.
 
-Currently, two official plugins are available:
+![Portfolio Preview](/public/lion.png) *(Note: Replace with an actual screenshot if available)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Key Features
 
-## React Compiler
+- **Cinematic Autoscroll**: A hands-free exploration mode triggered by the chevron button on the landing page. It provides a smooth, slow-paced tour of the entire portfolio.
+- **Micro-Animations**: Custom `BlurText` component for high-impact, scroll-triggered typographic animations.
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing.
+- **Strict Dark Aesthetic**: A consistent, premium dark theme with vibrant `#C3E41D` accents and a global "404" background element.
+- **Glassmorphic Navigation**: A sleek hamburger menu with backdrop-blur effects for seamless section jumping.
+- **Detailed Content Sections**:
+    - **About**: A "Gen-Z" vibe intro with a "Me in a nutshell" quick-scan sidebar.
+    - **Experience**: Timeline of roles including full-stack development and AI orchestration.
+    - **Projects**: Technical deep-dives with direct links to GitHub repositories.
+    - **Education**: Academic background with institution logos.
+    - **Contact**: Interactive links to Email, LinkedIn, and GitHub.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: [React 18](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Typography**: 
+    - `Antic`: For body text and elegant headings.
+    - `Fira Code`: For technical accents, labels, and code-like aesthetics.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── components/
+│   ├── ui/
+│   │   ├── portfolio-hero.tsx      # Landing page, Navigation, Autoscroll logic
+│   │   ├── about-section.tsx       # Bio and personal "nutshell"
+│   │   ├── experience-section.tsx  # Career timeline
+│   │   ├── projects-section.tsx    # Technical projects showcase
+│   │   ├── education-section.tsx   # Academic history
+│   │   ├── contact-section.tsx     # Contact links and Footer
+│   │   └── blur-text.tsx           # Reusable scroll-animation component
+│   └── demo.tsx                    # Main layout assembler
+├── App.tsx                         # Root component
+└── index.css                       # Global styles and Tailwind imports
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Ayushmanonlycode/portf2.0.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd portfolio-upgraded
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Run the development server:
+```bash
+npm run dev
 ```
+
+### Build
+
+Create a production-ready build in the `dist/` folder:
+```bash
+npm run build
+```
+
+## 📄 License
+
+Designed and Developed by **Ayushman Rout**.  
+© 2025 Ayushman Rout. All rights reserved.
