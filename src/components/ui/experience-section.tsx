@@ -27,7 +27,7 @@ const experiences: ExperienceItem[] = [
         tech: ["Electron", "TypeScript", "React", "Node.js", "Mastra"]
     },
     {
-        company: "IISPPR",
+        company: "International Institute of SDG's and Public Policy Research",
         role: "Web Developer Intern, NGO",
         period: "May 2025 - July 2025",
         location: "Remote",

@@ -123,11 +123,11 @@ export default function Component() {
 
     const menuItems = [
         { label: "HOME", href: "#", highlight: true },
-        { label: "ABOUT", href: "#" },
-        { label: "PROJECTS", href: "#" },
-        { label: "EXPERIENCE", href: "#" },
-        { label: "EDUCATION", href: "#" },
-        { label: "CONTACT", href: "#" },
+        { label: "ABOUT", href: "#about" },
+        { label: "PROJECTS", href: "#projects" },
+        { label: "EXPERIENCE", href: "#experience" },
+        { label: "EDUCATION", href: "#education" },
+        { label: "CONTACT", href: "#contact" },
     ];
 
     return (
@@ -219,7 +219,7 @@ export default function Component() {
                     <div className="relative text-center">
                         <div>
                             <BlurText
-                                text="Think"
+                                text="IT"
                                 delay={100}
                                 animateBy="letters"
                                 direction="top"
@@ -229,7 +229,7 @@ export default function Component() {
                         </div>
                         <div>
                             <BlurText
-                                text="Build"
+                                text="WORKS?!"
                                 delay={100}
                                 animateBy="letters"
                                 direction="top"
@@ -247,7 +247,7 @@ export default function Component() {
                 <div className="absolute bottom-16 sm:bottom-20 md:bottom-24 lg:bottom-32 xl:bottom-36 left-1/2 -translate-x-1/2 w-full px-6">
                     <div className="flex justify-center">
                         <BlurText
-                            text="Designing human experiences in code."
+                            text="IDK MAN IT WORKS ON MY PC :("
                             delay={150}
                             animateBy="words"
                             direction="top"
