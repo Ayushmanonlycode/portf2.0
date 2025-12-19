@@ -219,7 +219,7 @@ export default function Component() {
                     <div className="relative text-center">
                         <div>
                             <BlurText
-                                text="IT"
+                                text="Think"
                                 delay={100}
                                 animateBy="letters"
                                 direction="top"
@@ -229,7 +229,7 @@ export default function Component() {
                         </div>
                         <div>
                             <BlurText
-                                text="WORKS!"
+                                text="Build"
                                 delay={100}
                                 animateBy="letters"
                                 direction="top"
@@ -239,7 +239,7 @@ export default function Component() {
                         </div>
 
                         {/* Profile Picture */}
-                        
+
                     </div>
                 </div>
 
