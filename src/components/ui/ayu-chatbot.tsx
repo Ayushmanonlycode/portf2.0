@@ -6,32 +6,25 @@ import ReactMarkdown from 'react-markdown';
 
 // Portfolio Context
 const PORTFOLIO_CONTEXT = `
-You are "Ayu", a cute and helpful AI assistant for Ayushman Rout's portfolio.
-Your goal is to help recruiters quickly understand Ayushman's skills and experience.
-Ayushman is a CS undergrad at VIT Vellore, building AI products end-to-end.
+You are "Ayu", a chill AI for Ayushman Rout's portfolio.
+Answer brief and exactly. No yap. No emojis under any circumstances.
+Use quirky, Gen Z, friendly language but keep it professional.
 
-Key Info:
-- Name: Ayushman Rout
-- Location: Vellore, Tamil Nadu
-- Education: B.Tech in CS at VIT Vellore (CGPA: 9.13), Grade 12 (96%), Grade 10 (97.2%).
-- Experience:
-  1. Fenrir Security (Founding Intern): Built cross-platform AI platform with Electron, TS, React, Node.js, and Mastra. Orchestrated multi-agent layers and built AI-native terminals.
-  2. International Institute of SDGs (Web Dev Intern): Led 20+ members, integrated Firebase/MongoDB.
-  3. GSSOC (Open Source Contributor): Postman API certification, 15+ GitHub issues resolved.
-  4. Odisha Literary Association (Management Head): Leadership and strategic initiatives.
-- Projects:
-  1. HackRx Backend API: High-throughput RAG pipeline with FastAPI, FAISS, Gemini LLMs.
-  2. JobTrackr: Full-stack job tracking dashboard with React, Node, MongoDB, Recharts.
-  3. SignBridge: Bidirectional ASL translation system using YOLOv8, PyTorch, Flask.
-- Core Skills: AI/ML, Full Stack Developement, React, TypeScript, Node.js, Python, FastAPI, Electron, Mastra, MongoDB, Firebase.
-- Personality: Cute, friendly, enthusiastic, slightly Gen-Z. Use emojis! Always be polite and professional but with a fun twist.
+Ayushman (VIT Vellore CS undergrad, CGPA 9.13) builds AI products.
+Experience:
+- Fenrir Security: AI platform, Mastra, Electron, Node.js.
+- JobTrackr: Full-stack, React, MongoDB.
+- HackRx: RAG pipeline, FastAPI, Gemini.
+- SignBridge: ASL translation, YOLOv8, PyTorch.
+Skills: AI/ML, Full Stack, TS, Python, FastAPI, MongoDB.
 
-Instructions:
-- Cute, friendly, and enthusiastic 🫶
-- Think like a builder and product engineer
-- Clear, honest, and polite
-- Emojis welcome ✨
-- If unsure about something, say so calmly and help where possible
+Rating Task:
+If a Job Description (JD) is provided, rate Ayushman's profile out of 10 based on his skills and experience. Provide a concise justification for the score. 
+
+Constraints:
+- No emojis.
+- Brief responses.
+- Gen Z vibe (but don't overdo it, keep it sharp).
 `;
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || "");
@@ -65,12 +58,33 @@ const CatIcon = ({ className = "", color = "currentColor" }: { className?: strin
 export default function AyuChatbot() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<{ role: 'user' | 'bot'; text: string }[]>([
-        { role: 'bot', text: "Hi! I'm Ayu! I can help you explore Ayushman's portfolio. What would you like to know?" }
+        { role: 'bot', text: "Yo, I'm Ayu. Ask me about Ayushman's work or drop a JD for a quick rating." }
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const chatRef_api = useRef<any>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatRef = useRef<HTMLDivElement>(null);
+
+    const getChatSession = () => {
+        if (chatRef_api.current) return chatRef_api.current;
+
+        // Note: gemini-1.5-flash is stable and high-limit. 2.5/3.0 don't exist yet.
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+        chatRef_api.current = model.startChat({
+            history: [
+                {
+                    role: "user",
+                    parts: [{ text: PORTFOLIO_CONTEXT }],
+                },
+                {
+                    role: "model",
+                    parts: [{ text: "Understood. No emojis. Brief and Gen-Z focused. Ready to rate." }],
+                },
+            ],
+        });
+        return chatRef_api.current;
+    };
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -108,28 +122,18 @@ export default function AyuChatbot() {
         setIsLoading(true);
 
         try {
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-            const chat = model.startChat({
-                history: [
-                    {
-                        role: "user",
-                        parts: [{ text: PORTFOLIO_CONTEXT }],
-                    },
-                    {
-                        role: "model",
-                        parts: [{ text: "Got it! I am Ayu, Ayushman's cute AI assistant. I'm ready to help recruiters! 😺" }],
-                    },
-                ],
-            });
-
+            const chat = getChatSession();
             const result = await chat.sendMessage(userMessage);
             const response = await result.response;
             const text = response.text();
 
             setMessages(prev => [...prev, { role: 'bot', text }]);
-        } catch (error) {
+        } catch (error: any) {
             console.error("Gemini Error:", error);
-            setMessages(prev => [...prev, { role: 'bot', text: "Oopsie! I hit a snag. 😿 Maybe check if your API key is set up? Anyway, Ayushman is awesome! 🚀" }]);
+            const errorMessage = error?.message?.includes('429')
+                ? "Rate limit hit. Wait a sec and try again. Ayushman's projects are worth the wait."
+                : "Server's acting up. My bad. Ayushman's still the GOAT though.";
+            setMessages(prev => [...prev, { role: 'bot', text: errorMessage }]);
         } finally {
             setIsLoading(false);
         }
