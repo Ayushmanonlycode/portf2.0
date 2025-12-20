@@ -4,6 +4,7 @@ import ExperienceSection from "./ui/experience-section";
 import EducationSection from "./ui/education-section";
 import ProjectsSection from "./ui/projects-section";
 import ContactSection from "./ui/contact-section";
+import AyuChatbot from "./ui/ayu-chatbot";
 
 export default function Demo() {
     return (
@@ -28,6 +29,7 @@ export default function Demo() {
                 <ProjectsSection />
                 <EducationSection />
                 <ContactSection />
+                <AyuChatbot />
             </div>
         </>
     );

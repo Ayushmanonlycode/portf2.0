@@ -11,6 +11,9 @@ Welcome to my personal portfolio! This is a high-performance, dark-themed, and t
 - **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing.
 - **Strict Dark Aesthetic**: A consistent, premium dark theme with vibrant `#C3E41D` accents and a global "404" background element.
 - **Glassmorphic Navigation**: A sleek hamburger menu with backdrop-blur effects for seamless section jumping.
+- **🛠️ Project Architecture** - Modular and scalable folder structure.
+- **🐾 Ayu AI Chatbot** - A cute, Gemini-powered assistant to help recruiters explore the portfolio.
+- **✨ Smooth Animations** - Powered by Framer Motion for a premium feel.
 - **Detailed Content Sections**:
     - **About**: A "Gen-Z" vibe intro with a "Me in a nutshell" quick-scan sidebar.
     - **Experience**: Timeline of roles including full-stack development and AI orchestration.
@@ -20,6 +23,12 @@ Welcome to my personal portfolio! This is a high-performance, dark-themed, and t
 
 ## 🛠️ Tech Stack
 
+- **React 19 & TypeScript**
+- **Vite** for blazing fast development.
+- **Tailwind CSS** for modern, responsive styling.
+- **Framer Motion** for complex animations.
+- **Google Gemini API** for the portfolio AI.
+- **React Markdown** for rich text responses.
 - **Frontend**: [React 18](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
