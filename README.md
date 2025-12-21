@@ -11,6 +11,9 @@ Welcome to my personal portfolio! This is a high-performance, dark-themed, and t
 - **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing.
 - **Strict Dark Aesthetic**: A consistent, premium dark theme with vibrant `#C3E41D` accents and a global "404" background element.
 - **Glassmorphic Navigation**: A sleek hamburger menu with backdrop-blur effects for seamless section jumping.
+- **🛠️ Project Architecture** - Modular and scalable folder structure.
+- **🐾 Ayu AI Chatbot** - A cute, Gemini-powered assistant to help recruiters explore the portfolio.
+- **✨ Smooth Animations** - Powered by Framer Motion for a premium feel.
 - **Detailed Content Sections**:
     - **About**: A "Gen-Z" vibe intro with a "Me in a nutshell" quick-scan sidebar.
     - **Experience**: Timeline of roles including full-stack development and AI orchestration.
@@ -20,30 +23,32 @@ Welcome to my personal portfolio! This is a high-performance, dark-themed, and t
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: [React 18](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Typography**: 
-    - `Antic`: For body text and elegant headings.
-    - `Fira Code`: For technical accents, labels, and code-like aesthetics.
+- **React 19 & TypeScript**
+- **Vite** for blazing fast development
+- **Tailwind CSS** for modern, responsive styling
+- **Framer Motion** for complex animations
+- **Google Gemini API** for the portfolio AI
+- **React Markdown** for rich text responses
+- **Lucide React** for premium icons
 
 ## 📁 Project Structure
 
 ```text
-src/
-├── components/
-│   ├── ui/
-│   │   ├── portfolio-hero.tsx      # Landing page, Navigation, Autoscroll logic
-│   │   ├── about-section.tsx       # Bio and personal "nutshell"
-│   │   ├── experience-section.tsx  # Career timeline
-│   │   ├── projects-section.tsx    # Technical projects showcase
-│   │   ├── education-section.tsx   # Academic history
-│   │   ├── contact-section.tsx     # Contact links and Footer
-│   │   └── blur-text.tsx           # Reusable scroll-animation component
-│   └── demo.tsx                    # Main layout assembler
-├── App.tsx                         # Root component
-└── index.css                       # Global styles and Tailwind imports
+├── src/
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── ayu-chatbot.tsx      # Gemini-powered AI Assistant
+│   │   │   ├── portfolio-hero.tsx   # Landing page & Autoscroll logic
+│   │   │   ├── about-section.tsx    # Bio and personal sidebar
+│   │   │   ├── experience-section.tsx
+│   │   │   ├── projects-section.tsx
+│   │   │   ├── education-section.tsx
+│   │   │   └── contact-section.tsx
+│   │   └── demo.tsx                 # Main layout assembler
+│   ├── App.tsx                      # Root component
+│   └── index.css                    # Global styles & custom scrollbars
+├── .env.example                     # Env template for Gemini API
+└── tailwind.config.js               # Design tokens & theme
 ```
 
 ## 🚀 Getting Started
@@ -66,6 +71,13 @@ src/
 3. Install dependencies:
    ```bash
    npm install
+   ```
+4. Set up Environment Variables:
+   - Create a `.env` file in the root directory.
+   - Copy the content from `.env.example`.
+   - Add your [Gemini API Key](https://aistudio.google.com/).
+   ```env
+   VITE_GEMINI_API_KEY=your_key_here
    ```
 
 ### Development
