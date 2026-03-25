@@ -14,7 +14,7 @@ const educationData: EducationItem[] = [
         institution: "Vellore Institute of Technology",
         degree: "Bachelor of Technology - BTech, Computer Science",
         period: "Aug 2023 – Aug 2027",
-        CGPA: "9.13",
+        CGPA: "9.10",
 
     },
     {
