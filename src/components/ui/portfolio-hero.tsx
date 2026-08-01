@@ -215,7 +215,7 @@ export default function Component() {
                     {/* Resume Download - Top Right */}
                     <div className="justify-self-end">
                         <a
-                            href="https://drive.google.com/file/d/1KmCy8KEGAoR5JN-61WMgpIuhY-wr4jcG/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1LqBqL-diIr4rwpl-TBKIECjnNoeCefBd/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 border border-neutral-800 rounded-full text-xs md:text-sm font-bold tracking-widest text-neutral-400 hover:text-white hover:border-white transition-all duration-300 mix-blend-difference"
