@@ -12,30 +12,87 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
     {
+        company: "TCS Research & Innovation",
+        role: "Research Intern",
+        period: "May 2026 - July 2026",
+        location: "Bhubaneswar, India",
+        description: [
+            "Researched Wi-Fi telemetry, V2X communication, anomaly detection, and Root Cause Analysis (RCA), evaluating frameworks including NS-3, NVIDIA Sionna, Mininet, and TimeEval.",
+            "Built an event-driven analytics platform using FastAPI, PostgreSQL, Apache Kafka, and Podman, developing REST APIs and scalable telemetry processing pipelines.",
+            "Processed the V2X dataset, benchmarked 19 machine learning models, and developed a CLI-based NL2SQL interface using Gemini 2.5 Flash and Mistral with query validation and caching.",
+            "Contributed to AI-driven wireless network analytics research by preparing technical documentation, system architecture, and supporting a prospective research publication."
+        ],
+        tech: [
+            "Python",
+            "FastAPI",
+            "PostgreSQL",
+            "Apache Kafka",
+            "Podman",
+            "Machine Learning",
+            "Gemini",
+            "Mistral"
+        ]
+    },
+    {
+        company: "Hewlett Packard Enterprise (HPE)",
+        role: "Software Development Engineer (SDE) Intern",
+        period: "February 2026 - July 2026",
+        location: "Remote",
+        description: [
+            "Developed and enhanced a distributed Spring Boot microservices platform comprising seven microservices with REST APIs, JPA repositories, validation, exception handling, and PostgreSQL integration.",
+            "Engineered concurrency-safe inventory management using pessimistic locking, implemented fulfillment state-machine workflows, and built a Redis-backed cart service with session TTL caching.",
+            "Configured API Gateway routing, resolved infrastructure and Docker deployment issues, and modernized the frontend with a minimalist dark theme for an improved developer experience.",
+            "Authored comprehensive technical documentation and built JUnit 5, Mockito, and MockMvc test suites, achieving successful end-to-end builds with Maven."
+        ],
+        tech: [
+            "Java",
+            "Spring Boot",
+            "PostgreSQL",
+            "Redis",
+            "Docker",
+            "JUnit 5",
+            "Mockito",
+            "MockMvc",
+            "Spring Cloud Gateway"
+        ]
+    },
+    {
         company: "Fenrir Security Private Limited",
         role: "Founding Intern - Full Stack Developer",
         period: "June 2025 - July 2025",
         location: "Remote",
-        description: ["Architected the core infrastructure of a cross-platform AI platform using Electron, TypeScript, and React; authored 20,000+ LOC across frontend, backend, and IPC layers.",
-"Designed and integrated a scalable multi-agent orchestration layer with Mastra, enabling concurrent agent sessions and persistent threads.",
-"Built developer-facing features including AI-native terminals, autonomous code editors, and multi-session workspaces.",
-"Implemented selective AST-based code scanning with a custom .fenrirignore parser for high-performance analysis.",
-"Engineered a resilient interrupt control pipeline using Electron’s IPC Main–Renderer bridge.",
-"Refactored IPC architecture with typed protocol handlers, reducing logic bugs by over 30%."],
-
-        tech: ["Electron", "TypeScript", "React", "Node.js", "Mastra"]
+        description: [
+            "Architected the core infrastructure of a cross-platform AI platform using Electron, TypeScript, and React; authored 20,000+ LOC across frontend, backend, and IPC layers.",
+            "Designed and integrated a scalable multi-agent orchestration layer with Mastra, enabling concurrent agent sessions and persistent threads.",
+            "Built developer-facing features including AI-native terminals, autonomous code editors, and multi-session workspaces.",
+            "Implemented selective AST-based code scanning with a custom .fenrirignore parser for high-performance analysis.",
+            "Engineered a resilient interrupt control pipeline using Electron's IPC Main–Renderer bridge.",
+            "Refactored IPC architecture with typed protocol handlers, reducing logic bugs by over 30%."
+        ],
+        tech: [
+            "Electron",
+            "TypeScript",
+            "React",
+            "Node.js",
+            "Mastra"
+        ]
     },
     {
         company: "International Institute of SDG's and Public Policy Research",
-        role: "Web Developer Intern, NGO",
+        role: "Web Developer Intern",
         period: "May 2025 - July 2025",
         location: "Remote",
         description: [
             "Led a team of 20+ members, coordinating project execution and ensuring on-time delivery of all milestones.",
-            "Expedited debugging processes using Chrome DevTools and Postman, decreasing defect resolution time by 15 hours per week.",
-            "Integrated Firebase for authentication and MongoDB for data storage, enabling secure access for 15+ users."
+            "Expedited debugging processes using Chrome DevTools and Postman, reducing defect resolution time by 15 hours per week.",
+            "Integrated Firebase authentication and MongoDB, enabling secure access and data management for 15+ users."
         ],
-        tech: ["React", "Firebase", "MongoDB", "Postman"]
+        tech: [
+            "React",
+            "Firebase",
+            "MongoDB",
+            "Postman"
+        ]
     },
     {
         company: "GirlScript Summer of Code (GSSOC)",
@@ -43,11 +100,16 @@ const experiences: ExperienceItem[] = [
         period: "2024",
         location: "Remote",
         description: [
-            "Earned Postman API Fundamentals Certification, mastering API development and testing.",
-            "Resolved 15+ GitHub issues including bug fixes and API endpoint implementations with 100% acceptance rate.",
-            "Enhanced collaboration skills through Git workflows and open-source contribution best practices."
+            "Resolved 15+ GitHub issues including bug fixes and API endpoint implementations with a 100% acceptance rate.",
+            "Earned the Postman API Fundamentals Certification, strengthening API development and testing expertise.",
+            "Collaborated with maintainers using Git workflows and open-source contribution best practices."
         ],
-        tech: ["Git", "GitHub", "API Testing"]
+        tech: [
+            "Git",
+            "GitHub",
+            "REST APIs",
+            "Postman"
+        ]
     },
     {
         company: "Odisha Literary Association",
@@ -55,10 +117,17 @@ const experiences: ExperienceItem[] = [
         period: "Sep 2023 - Present",
         location: "Vellore, Tamil Nadu",
         description: [
-            "Oversee strategic initiatives and operational management to foster literature's growth and cultural impact.",
-            "Leveraging leadership skills to support the association's mission of promoting literary arts and community engagement."
+            "Led strategic initiatives and operational management to promote literary and cultural activities across the association.",
+            "Managed cross-functional teams and organized community events while fostering leadership and member engagement."
         ],
-        tech: ["Persuasive Speaking", "Marketing", "Mentoring", "Creative Problem Solving", "Public Speaking", "Skill Development", "People Development", "Performance Management", "People Management", "Team Leadership", "Leadership"]
+        tech: [
+            "Leadership",
+            "Team Management",
+            "Public Speaking",
+            "Mentoring",
+            "Marketing",
+            "People Management"
+        ]
     }
 ];
 
