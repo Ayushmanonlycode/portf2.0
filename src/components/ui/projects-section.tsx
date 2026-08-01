@@ -13,39 +13,82 @@ interface ProjectItem {
 
 const projectsData: ProjectItem[] = [
     {
+        title: "KubeAI - AI Kubernetes Observability Backend",
+        role: "Backend Developer",
+        period: "May 2026",
+        tech: [
+            "FastAPI",
+            "Prometheus",
+            "Redis",
+            "PostgreSQL",
+            "NetworkX",
+            "Gemini LLMs",
+            "Docker",
+            "Kubernetes"
+        ],
+        description: [
+            "Built a production-grade FastAPI backend for AI-powered Kubernetes observability, collecting Prometheus metrics and detecting anomalies using deterministic rolling z-scores.",
+            "Designed a two-process architecture with a Redis-backed event queue (consumer groups) for asynchronous metric collection, anomaly detection, and reliable at-least-once processing.",
+            "Developed a NetworkX-based dependency graph to correlate anomalous pods for root cause propagation, integrating Gemini LLMs for pod-level RCA and cluster-wide incident analysis.",
+            "Containerized and deployed the platform on Kubernetes with health probes, resource limits, secret management, API key rotation, caching, and deterministic AI fallbacks."
+        ],
+        github: "https://github.com/Ayushmanonlycode/KubeAI"
+    },
+    {
         title: "HackRx Backend API",
         role: "Backend Developer",
         period: "August 2025",
-        tech: ["FastAPI", "FAISS", "Gemini LLMs", "Python", "Docker", "Tesseract OCR"],
+        tech: [
+            "FastAPI",
+            "FAISS",
+            "Gemini LLMs",
+            "Python",
+            "Docker",
+            "Tesseract OCR"
+        ],
         description: [
-    "Architected a high-throughput asynchronous RAG pipeline using FastAPI and LangChain, enabling semantic vector search with relevance-scored context retrieval.",
-    "Built a multi-format document processing engine supporting PDF, DOCX, PPTX, XLSX, and EML with integrated Tesseract OCR for automated text extraction.",
-    "Engineered a fault-tolerant LLM inference pipeline with batched processing, exponential backoff with jitter, and semaphore-controlled concurrency."
-  ],
+            "Architected a high-throughput asynchronous RAG pipeline using FastAPI and LangChain, enabling semantic vector search with relevance-scored context retrieval.",
+            "Built a multi-format document processing engine supporting PDF, DOCX, PPTX, XLSX, and EML with integrated Tesseract OCR for automated text extraction.",
+            "Engineered a fault-tolerant LLM inference pipeline with batched processing, exponential backoff with jitter, and semaphore-controlled concurrency."
+        ],
         github: "https://github.com/Ayushmanonlycode/HackrxBackend"
     },
     {
         title: "JobTrackr",
         role: "Full-Stack Developer",
         period: "May 2025",
-        tech: ["React", "TypeScript", "Node.js", "Express.js", "MongoDB", "Firebase Auth"],
+        tech: [
+            "React",
+            "TypeScript",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Firebase Auth"
+        ],
         description: [
-    "Developed a job application tracking dashboard with multi-parameter filtering by date, role, and status, reducing tracking time by 60%.",
-    "Integrated responsive analytics dashboards using Recharts to visualize application status distribution and offer metrics.",
-    "Built a real-time backend with Node.js, Express, and MongoDB, delivering optimized APIs for live dashboard updates.",
-    "Implemented smooth UI transitions with Framer Motion and responsive layouts using Tailwind CSS."
-  ],
+            "Developed a job application tracking dashboard with multi-parameter filtering by date, role, and status, reducing tracking time by 60%.",
+            "Integrated responsive analytics dashboards using Recharts to visualize application status distribution and offer metrics.",
+            "Built a real-time backend with Node.js, Express, and MongoDB, delivering optimized APIs for live dashboard updates.",
+            "Implemented smooth UI transitions with Framer Motion and responsive layouts using Tailwind CSS."
+        ],
         github: "https://github.com/Ayushmanonlycode/JobTrackr"
     },
     {
         title: "SignBridge",
         role: "AI/ML Developer",
-        period: "Mar 2025",
-        tech: ["PyTorch (YOLOv8)", "OpenCV", "Python", "Flask", "HTML/JS"],
+        period: "March 2025",
+        tech: [
+            "PyTorch (YOLOv8)",
+            "OpenCV",
+            "Python",
+            "Flask",
+            "HTML",
+            "JavaScript"
+        ],
         description: [
-            "Built a real-time bidirectional ASL translation system supporting both Sign-to-Text and Text-to-Sign workflows, achieving 67ms latency.",
-            "Leveraged Google Colab GPUs to train a YOLOv8 model on 5,000+ images of custom ASL datasets, improving the model’s ability to recognize and translate 40+ common ASL gestures with high precision.",
-            "Architected and deployed RESTful APIs with Flask/FastAPI, handling multiple requests per minute with sub-50ms latency"
+            "Built a real-time bidirectional ASL translation system supporting both Sign-to-Text and Text-to-Sign workflows with 67 ms inference latency.",
+            "Trained a YOLOv8 model on 5,000+ custom ASL images using Google Colab GPUs, enabling recognition of 40+ ASL gestures with high accuracy.",
+            "Designed and deployed RESTful APIs with Flask, delivering low-latency inference for real-time translation."
         ],
         github: "https://github.com/pieyush-9090/SignBridge"
     }
